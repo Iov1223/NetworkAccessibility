@@ -1,0 +1,80 @@
+﻿<Window x:Class="NetworkAccessibility.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NetworkAccessibility"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="470" Width="945"  MinHeight="470" MinWidth="945">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Margin" Value="8"/>
+        </Style>
+       
+    </Window.Resources>
+        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="600" ></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0">
+            <TextBox x:Name="FirstAddress"/>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Rectangle x:Name="FirstRect"  Margin="30,8,30,8"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="0">
+            <TextBox x:Name="SecondAddress"/>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Rectangle x:Name="SecondRect"  Margin="30,8,30,8"/>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="0">
+            <TextBox x:Name="ThirdAddress"/>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Rectangle x:Name="ThirdRect"  Margin="30,8,30,8"/>
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="0">
+            <TextBox x:Name="FourthAddress"/>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Rectangle x:Name="FourthRect"  Margin="30,8,30,8"/>
+        </Grid>
+
+        <Grid Grid.Row="4" Grid.Column="0">
+            <TextBox x:Name="FifthAddress"/>
+        </Grid>
+        <Grid Grid.Row="4" Grid.Column="1">
+            <Rectangle x:Name="FifthRect"  Margin="30,8,30,8"/>
+        </Grid>
+
+        <Grid Grid.Row="5" Grid.Column="0">
+            <TextBox x:Name="SixthAddress"/>
+        </Grid>
+        <Grid Grid.Row="5" Grid.Column="1">
+            <Rectangle x:Name="SixthRect"  Margin="30,8,30,8"/>
+        </Grid>
+
+        <Button x:Name="ShowRes" Content="Проверить доступность"  
+                   Grid.Row="7" Grid.ColumnSpan="2" FontSize="20" Margin="200,60,200,60" 
+                Background="LightGray" Click="ShowRes_Click"/>
+
+    </Grid>
+</Window>
