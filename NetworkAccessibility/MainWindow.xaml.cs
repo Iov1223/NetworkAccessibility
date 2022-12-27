@@ -21,107 +21,47 @@ namespace NetworkAccessibility
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<string> address = new List<string>();
-        PING _ping, _ping002;
+        
+        PING _ping;
         public MainWindow()
         {
             InitializeComponent();
-            _ping = new PING(FirstAddress.Text);
-            //_ping002 = new PING(SecondAddress.Text);
+            _ping = new PING();
         }
         private List<string> AddAddress()
         {
-            if (FirstAddress.Text != "")
-            {
-                address.Add(FirstAddress.Text);
-            }
+            List<string> address = new List<string>(); // Создаётся при каждом вызове метода, чтобы обнулялся
 
-            if (SecondAddress.Text != "")
-            {
-                address.Add(SecondAddress.Text);
-            }
+            address.Add(FirstAddress.Text);
+            address.Add(SecondAddress.Text);
+            address.Add(ThirdAddress.Text);
+            address.Add(FourthAddress.Text);
+            address.Add(FifthAddress.Text);
+            address.Add(SixthAddress.Text);
 
-            if (ThirdAddress.Text != "")
-            {
-                address.Add(ThirdAddress.Text);
-            }
-
-            if (FourthAddress.Text != "")
-            {
-                address.Add(FourthAddress.Text);
-            }
-
-            if (FifthAddress.Text != "")
-            {
-                address.Add(FifthAddress.Text);
-            }
-
-            if (SixthAddress.Text != "")
-            {
-                address.Add(SixthAddress.Text);
-            }
             return address;
         }
 
         private void ShowRes_Click(object sender, RoutedEventArgs e)
         {
-           
-
-            if (_ping.ShowAnswer(FirstAddress.Text))
+            List<string> addres = AddAddress();
+            Rectangle[] rects = { FirstRect, SecondRect, ThirdRect, FourthRect, FifthRect, SixthRect };
+            for (int i = 0; i < addres.Count; i++)
             {
-                
-                FirstRect.Fill = Brushes.Green;
+                if (addres[i] == "")
+                {
+                    rects[i].Fill = Brushes.White;
+                    continue;
+                }
+                if (_ping.ShowAnswer(addres[i]))
+                {
+                    rects[i].Fill = Brushes.Green;
+                }
+                else
+                {
+                    rects[i].Fill = Brushes.Red;
+                }
             }
-            else
-            {
-                
-                FirstRect.Fill = Brushes.Red;
-            }
-
-            //if (_ping.ShowAnswer(SecondAddress.Text))
-            //{
-            //    SecondRect.Fill = Brushes.Green;
-            //}
-            //else
-            //{
-            //    SecondRect.Fill = Brushes.Red;
-            //}
-
-            //if (_ping.ShowAnswer(AddAddress()))
-            //{
-            //    ThirdRect.Fill = Brushes.Green;
-            //}
-            //else
-            //{
-            //    ThirdRect.Fill = Brushes.Red;
-            //}
-
-            //if (_ping.ShowAnswer(AddAddress()))
-            //{
-            //    FourthRect.Fill = Brushes.Green;
-            //}
-            //else
-            //{
-            //    FourthRect.Fill = Brushes.Red;
-            //}
-
-            //if (_ping.ShowAnswer(AddAddress()))
-            //{
-            //    FifthRect.Fill = Brushes.Green;
-            //}
-            //else
-            //{
-            //    FifthRect.Fill = Brushes.Red;
-            //}
-
-            //if (_ping.ShowAnswer(AddAddress()))
-            //{
-            //    SixthRect.Fill = Brushes.Green;
-            //}
-            //else
-            //{
-            //    SixthRect.Fill = Brushes.Red;
-            //}
         }
     }
 }
